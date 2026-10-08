@@ -1,0 +1,98 @@
+* { box-sizing: border-box; }
+body { margin: 0; background: #121417; font-family: "Segoe UI", sans-serif; }
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 120px;
+  position: relative;
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+
+.lamp-glow {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, rgba(212,175,55,.18), transparent 60%);
+}
+
+/* ---------- Lamp ---------- */
+.lamp { position: relative; width: 160px; height: 300px; }
+.lamp-shade {
+  width: 130px; height: 65px; margin: 0 auto;
+  background: #fff; border-radius: 65px 65px 6px 6px;
+  position: relative; z-index: 2;
+}
+.lamp-light {
+  position: absolute; top: 55px; left: 50%; transform: translateX(-50%);
+  width: 100px; height: 22px; border-radius: 0 0 50px 50px;
+  background: #d4af37; transition: opacity .6s; z-index: 1;
+}
+.lamp-pole { width: 14px; height: 190px; margin: 0 auto; background: #e8e6df; }
+.lamp-base { width: 80px; height: 12px; margin: 0 auto; background: #e8e6df; border-radius: 6px; }
+
+.cord {
+  position: absolute; top: 62px; left: 112px; cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; z-index: 3;
+}
+.cord-line { width: 2px; height: 70px; background: #bbb; }
+.cord-bead {
+  width: 16px; height: 16px; border-radius: 50%; background: #d4a373;
+  box-shadow: 0 0 0 6px transparent; transition: box-shadow .2s;
+}
+.cord:hover .cord-bead { box-shadow: 0 0 0 6px rgba(212,163,115,.25); }
+
+/* ---------- Card ---------- */
+.auth-card {
+  width: 320px; padding: 28px; border-radius: 22px; color: #fff;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.12);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 20px 50px rgba(0,0,0,.4);
+  opacity: .25; pointer-events: none; filter: blur(1.5px);
+  transition: opacity .6s, filter .6s;
+}
+.auth-card.active { opacity: 1; pointer-events: auto; filter: none; }
+
+.auth-card h2 { text-align: center; font-weight: 500; margin: 0 0 18px; font-size: 18px; }
+.auth-card label { display: block; font-size: 11px; color: #aaa; margin: 12px 0 6px; }
+.auth-card input {
+  width: 100%; padding: 11px 12px; border-radius: 8px;
+  border: 1px solid rgba(255,255,255,.1);
+  background: rgba(255,255,255,.08); color: #fff; font-size: 13px; outline: none;
+}
+.auth-card input:focus { border-color: #d4af37; }
+
+.auth-card button {
+  width: 100%; margin-top: 22px; padding: 12px; border: 0; border-radius: 10px;
+  font-weight: 600; cursor: pointer; color: #3a2d00;
+  background: linear-gradient(135deg, #f5e08a, #d4af37 45%, #b8901f);
+  box-shadow: 0 6px 18px rgba(212,175,55,.35);
+  transition: transform .15s;
+}
+.auth-card button:hover { transform: translateY(-1px); }
+.auth-card button:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+
+.auth-error { color: #ff7b7b; font-size: 12px; margin: 12px 0 0; }
+.field-error { color: #ff7b7b; font-size: 11px; margin: 6px 0 0; }
+.switch { text-align: center; font-size: 12px; color: #aaa; margin-top: 16px; }
+.switch span { color: #d4af37; cursor: pointer; }
+
+/* password checklist */
+.rules { list-style: none; padding: 0; margin: 12px 0 0; }
+.rules li { font-size: 11px; color: #888; margin: 4px 0; transition: color .2s; }
+.rules li.ok { color: #6fdc8c; }
+
+.hint { position: absolute; bottom: 24px; color: #777; font-size: 13px; }
+
+@media (max-width: 760px) { .auth-page { gap: 30px; padding: 30px 0; } }
+
+.forgot {
+  display: block; margin-top: 10px; text-align: right;
+  font-size: 12px; color: #d4af37; text-decoration: none;
+}
+.forgot:hover { text-decoration: underline; }

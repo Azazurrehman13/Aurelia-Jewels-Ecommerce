@@ -1,0 +1,76 @@
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(18, 20, 23, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+/* full width: brand touches the left, links touch the right */
+.nav-inner {
+  width: 100%;
+  padding: 10px 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+/* ---------- Logo (left) ---------- */
+.nav-logo {
+  display: flex; align-items: center; gap: 12px;
+  text-decoration: none;
+}
+
+/* round badge that shows only the gold "A" from the logo */
+.nav-badge {
+  position: relative; display: block;
+  width: 48px; height: 48px; border-radius: 50%;
+  overflow: hidden; flex-shrink: 0;
+  border: 1px solid rgba(212, 175, 55, 0.6);
+  background: #2a2a2a;
+}
+.nav-badge img {
+  position: absolute;
+  width: 115px; height: 115px;   /* zoom in on the monogram */
+  left: -32px; top: -17px;       /* move the A to the centre of the badge */
+  max-width: none;
+}
+
+.nav-brand {
+  color: #f5e08a; font-size: 20px; font-weight: 600;
+  letter-spacing: .5px; line-height: 1.1;
+}
+.nav-brand small {
+  font-size: 11px; font-weight: 400; letter-spacing: 5px;
+  text-transform: uppercase; color: #d4af37;
+  display: block; margin-top: 2px;
+}
+
+/* ---------- Links (right) ---------- */
+.nav-links { display: flex; align-items: center; gap: 24px; }
+.nav-links a {
+  color: #ccc; text-decoration: none; font-size: 14px; transition: color .2s;
+}
+.nav-links a:hover, .nav-links a.active { color: #d4af37; }
+
+.nav-btn {
+  padding: 9px 18px; border: 0; border-radius: 8px; cursor: pointer;
+  font-size: 13px; font-weight: 600; text-decoration: none;
+  color: #3a2d00 !important;
+  background: linear-gradient(135deg, #f5e08a, #d4af37 45%, #b8901f);
+}
+
+.nav-toggle {
+  display: none; background: none; border: 0; color: #d4af37;
+  font-size: 26px; cursor: pointer;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 760px) {
+  .nav-inner { padding: 10px 16px; }
+  .nav-toggle { display: block; }
+  .nav-links {
+    display: none; position: absolute; top: 100%; left: 0; right: 0;
+    flex-direction: column; align-items: flex-start; gap: 16px;
+    padding: 20px 16px; background: #121417;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  }
+  .nav-links.open { display: flex; }
+}
