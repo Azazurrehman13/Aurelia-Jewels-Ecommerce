@@ -25,7 +25,7 @@ export const sendMail = async ({ to, subject, html }) => {
   }
   try {
     await t.sendMail({
-      from: `"${process.env.EMAIL_FROM_NAME || "Aurelia Jewels"}" <${process.env.EMAIL_USER}>`,
+      from: `"${process.env.EMAIL_FROM_NAME || "HafAura Jewelry"}" <${process.env.EMAIL_USER}>`,
       to,
       subject,
       html,

@@ -1,9 +1,19 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import logo from "../assets/hafaura-logo.jpeg";
 import "./Home.css";
-import logo from "../assets/Goldlogo.png";
+import "./Hero.css";
 
-/* ---------- Gold line-art for each category ---------- */
+/* ---------- banner (safe import) ----------
+   Finds src/assets/hafaura-banner.* with ANY extension (.jpeg, .jpg, .png, .webp).
+   If the file is missing, the page still loads instead of crashing Vite. */
+const bannerFiles = import.meta.glob("../assets/hafaura-banner.*", {
+  eager: true,
+  import: "default",
+});
+const banner = Object.values(bannerFiles)[0];
+
+/* ---------- gold line-art for each category ---------- */
 const art = {
   rings: (
     <svg viewBox="0 0 100 100">
@@ -65,10 +75,10 @@ const categories = [
 ];
 
 const features = [
-  { icon: "◆", title: "Certified purity", text: "22K and 24K gold, with the purity and weight shown on every piece." },
-  { icon: "◆", title: "Secure account", text: "Your details are protected with encrypted passwords and secure login." },
-  { icon: "◆", title: "Delivery across Pakistan", text: "Cash on delivery available, with order tracking in your account." },
-  { icon: "◆", title: "Made for occasions", text: "Weddings, gifts and everyday wear, all in one collection." },
+  { title: "Certified purity", text: "22K and 24K gold, with the purity and weight shown on every piece." },
+  { title: "Secure account", text: "Your details are protected with encrypted passwords and secure login." },
+  { title: "Delivery across Pakistan", text: "Cash on delivery available, with order tracking in your account." },
+  { title: "Made for occasions", text: "Weddings, gifts and everyday wear, all in one collection." },
 ];
 
 const steps = [
@@ -83,27 +93,21 @@ export default function Home() {
   return (
     <>
       {/* ---------- Hero ---------- */}
-      <section className="hero">
-        <div className="hero-glow" />
-        <div className="hero-ring ring-1" />
-        <div className="hero-ring ring-2" />
-
-        <div className="hero-content">
-          <p className="hero-eyebrow">
-            {user ? `Welcome back, ${user.name.split(" ")[0]}` : "Fine jewellery · Gold · Silver · Diamond"}
+      <section className="hx">
+        <div className="hx-text">
+          <p className="hx-eyebrow">
+            {user ? `Welcome back, ${user.name.split(" ")[0]}` : "Gold · Silver · Diamond"}
           </p>
-          <h1>
-            Jewellery that tells
-            <br />
-            <span className="gold-text">your story</span>
+          <h1 className="hx-title">
+            Wear your <span className="hx-accent">aura</span>
           </h1>
-          <p className="hero-sub">
+          <p className="hx-sub">
             Handpicked rings, necklaces, earrings and bangles for weddings,
             gifts and every day you want to shine.
           </p>
 
-          <div className="hero-actions">
-            <Link to="/shop" className="btn-gold">Shop the collection</Link>
+          <div className="hx-actions">
+            <Link to="/shop" className="btn-primary">Shop the collection</Link>
             {user ? (
               <a href="#categories" className="btn-outline">Browse categories</a>
             ) : (
@@ -111,10 +115,16 @@ export default function Home() {
             )}
           </div>
 
-          <div className="hero-trust">
+          <div className="hx-trust">
             <span>22K &amp; 24K gold</span>
             <span>Cash on delivery</span>
             <span>Secure checkout</span>
+          </div>
+        </div>
+
+        <div className="hx-visual">
+          <div className="hx-frame">
+            <img src={banner || logo} alt="HafAura Jewelry. Every woman carries a unique aura." />
           </div>
         </div>
       </section>
@@ -141,12 +151,12 @@ export default function Home() {
 
       {/* ---------- Why us ---------- */}
       <section className="section">
-        <p className="section-eyebrow">Why Aurelia</p>
+        <p className="section-eyebrow">Why HafAura</p>
         <h2 className="section-title">Quality you can trust</h2>
         <div className="feat-grid">
           {features.map((f) => (
             <div key={f.title} className="feat">
-              <span className="feat-icon">{f.icon}</span>
+              <span className="feat-icon">◆</span>
               <h3>{f.title}</h3>
               <p>{f.text}</p>
             </div>
@@ -171,26 +181,28 @@ export default function Home() {
 
       {/* ---------- Final call to action ---------- */}
       <section className="cta">
-        <h2>Ready to find your perfect piece?</h2>
+        <h2>
+          Find the piece that feels like <span className="script">you</span>
+        </h2>
         <p>
           {user
             ? "Explore the full collection and add your favourites to the cart."
             : "Create a free account to save your favourites, track orders and checkout faster."}
         </p>
-        <Link to={user ? "/shop" : "/auth"} className="btn-gold">
+        <Link to={user ? "/shop" : "/auth"} className="btn-primary">
           {user ? "Start shopping" : "Sign up now"}
         </Link>
       </section>
 
-             {/* ---------- Footer ---------- */}
+      {/* ---------- Footer ---------- */}
       <footer className="footer">
         <div className="footer-brand">
           <span className="footer-badge">
-            <img src={logo} alt="Aurelia Jewels logo" />
+            <img src={logo} alt="HafAura Jewelry logo" />
           </span>
-          <span>Aurelia Jewels</span>
+          <span>HafAura Jewelry</span>
         </div>
-        <p>© {new Date().getFullYear()} Aurelia Jewels. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} HafAura Jewelry. All rights reserved.</p>
       </footer>
     </>
   );

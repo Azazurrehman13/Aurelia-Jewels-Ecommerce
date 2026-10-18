@@ -34,7 +34,7 @@ export default function AdminLogin() {
       <form className="al-card" onSubmit={handleSubmit} noValidate>
         <div className="al-gem">◆</div>
         <h1>Admin sign in</h1>
-        <p>Aurelia Jewels management panel</p>
+        <p>HafAura Jewelry management panel</p>
 
         <label>Admin email</label>
         <input
@@ -59,6 +59,7 @@ export default function AdminLogin() {
         <button className="ad-btn full" disabled={loading}>
           {loading ? "Signing in..." : "Sign in"}
         </button>
+        <Link to="/forgot-password" className="al-back">Forgot password?</Link>
         <Link to="/" className="al-back">← Back to store</Link>
       </form>
     </div>

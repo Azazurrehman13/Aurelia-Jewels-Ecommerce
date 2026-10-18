@@ -1,18 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@300;400;500;600&display=swap");
+
+:root {
+  /* HafAura palette */
+  --bg: #fbf7f1;          /* warm cream */
+  --bg-soft: #f5edf8;     /* pale lavender */
+  --card: #ffffff;
+  --lav: #e9dcef;         /* logo background */
+  --lav-deep: #9b7bbd;    /* lavender flowers */
+  --plum: #4a2860;        /* wordmark */
+  --plum-dark: #35194a;
+  --text: #3a2a47;
+  --muted: #7d6f8c;
+  --line: #e7dcee;
+  --gold: #b8925a;
+  --gold-light: #dcc08c;
+  --gold-dark: #8c6a35;
+  --gold-grad: linear-gradient(135deg, #e3c994, #b8925a 55%, #9a7440);
+  --plum-grad: linear-gradient(135deg, #6a3d88, #4a2860);
+  --shadow: 0 10px 30px rgba(74, 40, 96, .10);
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "Jost", "Segoe UI", sans-serif;
+  --script: "Allura", cursive;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
 body {
-  color: #eee;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
 }
 
-.page {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 40px 20px;
-  color: #eee;
-}
+h1, h2, h3, h4 { font-family: var(--serif); font-weight: 600; color: var(--plum); }
+button, input, select, textarea { font-family: inherit; }
+select option { background: #fff; color: var(--text); }
+::selection { background: var(--lav); }
 
+.page { max-width: 1100px; margin: 0 auto; padding: 40px 20px; color: var(--text); }
 .card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 14px;
-  padding: 20px;
-  max-width: 420px;
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: 14px; padding: 20px; max-width: 420px;
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
 }

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import api from "../api";
 import { useDialog } from "../context/DialogContext";
-import logo from "../assets/Goldlogo.png";
+import logo from "../assets/hafaura-logo.jpeg";
 import "./Recover.css";
 
 const rules = [
@@ -57,7 +57,7 @@ export default function ResetPassword() {
     <div className="rc-wrap">
       <div className="rc-card">
         <span className="rc-badge">
-          <img src={logo} alt="Aurelia Jewels logo" />
+          <img src={logo} alt="HafAura Jewelry logo" />
         </span>
 
         {status === "checking" && <p>Checking your link...</p>}

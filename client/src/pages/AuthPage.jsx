@@ -33,15 +33,15 @@ export default function AuthPage() {
   const blockSubmit =
     loading || !emailOk || (mode === "signup" && !passwordOk);
 
-  // animate background and glow when the lamp toggles
+    // animate the lamp scene and glow when the lamp toggles
   useEffect(() => {
-    gsap.to("body", {
-      backgroundColor: isOn ? "#1c1f24" : "#121417",
+    gsap.to(".auth-page", {
+      backgroundColor: isOn ? "#2e1b40" : "#1d1127",
       duration: 0.6,
     });
     gsap.to(".lamp-glow", { opacity: isOn ? 1 : 0, duration: 0.6 });
   }, [isOn]);
-
+  
   const pullCord = () => {
     gsap.fromTo(
       cordRef.current,

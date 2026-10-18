@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
-import logo from "../../assets/Goldlogo.png";
+import logo from "../../assets/hafaura-logo.jpeg";
 import "./admin.css";
 
 const links = [
@@ -28,9 +28,9 @@ export default function AdminLayout() {
       <header className="ad-top">
         <Link to="/admin" className="ad-brand">
           <span className="ad-badge">
-            <img src={logo} alt="Aurelia Jewels logo" />
+            <img src={logo} alt="HafAura Jewelry logo" />
           </span>
-          Aurelia Admin
+          HafAura Admin
         </Link>
         <button className="ad-burger" onClick={() => setOpen(!open)}>☰</button>
       </header>
@@ -39,10 +39,10 @@ export default function AdminLayout() {
         {/* logo on the left */}
         <Link to="/admin" className="ad-logo" onClick={() => setOpen(false)}>
           <span className="ad-badge">
-            <img src={logo} alt="Aurelia Jewels logo" />
+            <img src={logo} alt="HafAura Jewelry logo" />
           </span>
           <span className="ad-logo-text">
-            Aurelia <small>Admin panel</small>
+            HafAura <small>Admin panel</small>
           </span>
         </Link>
 

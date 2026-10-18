@@ -19,12 +19,12 @@ export default function OrderSuccess() {
   if (error)
     return (
       <div className="ok">
-        <p style={{ color: "#ff7b7b" }}>{error}</p>
+        <p className="ok-msg error">{error}</p>
         <Link to="/orders" className="co-back">Go to my orders</Link>
       </div>
     );
 
-  if (!order) return <div className="ok"><p style={{ color: "#999" }}>Loading...</p></div>;
+  if (!order) return <div className="ok"><p className="ok-msg">Loading...</p></div>;
 
   const a = order.shippingAddress;
 
@@ -33,7 +33,7 @@ export default function OrderSuccess() {
       <div className="ok-tick">✓</div>
       <h1>Thank you, your order is placed!</h1>
       <p className="ok-sub">
-        Order <strong style={{ color: "#f5e08a" }}>{orderNo(order._id)}</strong> has been received.
+        Order <strong className="ok-no">{orderNo(order._id)}</strong> has been received.
         Please keep {formatPrice(order.total)} ready in cash for delivery.
       </p>
 
@@ -46,16 +46,16 @@ export default function OrderSuccess() {
       <div className="ok-card">
         <h3>Items</h3>
         {order.items.map((i) => (
-          <p key={i.product} style={{ display: "flex", justifyContent: "space-between" }}>
+          <p key={i.product} className="ok-line">
             <span>{i.name} × {i.qty}</span>
             <span>{formatPrice(i.price * i.qty)}</span>
           </p>
         ))}
-        <p style={{ display: "flex", justifyContent: "space-between", marginTop: 12 }}>
+        <p className="ok-line" style={{ marginTop: 12 }}>
           <span>Delivery</span>
           <span>{order.deliveryFee === 0 ? "Free" : formatPrice(order.deliveryFee)}</span>
         </p>
-        <p style={{ display: "flex", justifyContent: "space-between", color: "#f5e08a", fontWeight: 600, fontSize: 16 }}>
+        <p className="ok-line ok-total">
           <span>Total (Cash on Delivery)</span>
           <span>{formatPrice(order.total)}</span>
         </p>

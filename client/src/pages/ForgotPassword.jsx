@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import api from "../api";
-import logo from "../assets/Goldlogo.png";
+import logo from "../assets/hafaura-logo.jpeg";
 import "./Recover.css";
 
 const emailRegex =
@@ -46,7 +46,7 @@ export default function ForgotPassword() {
     <div className="rc-wrap">
       <div className="rc-card">
         <span className="rc-badge">
-          <img src={logo} alt="Aurelia Jewels logo" />
+          <img src={logo} alt="HafAura Jewelry logo" />
         </span>
 
         {!sent ? (

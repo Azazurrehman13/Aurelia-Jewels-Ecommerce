@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useCart } from "../context/CartContext";
-import logo from "../assets/Goldlogo.png";
+import logo from "../assets/hafaura-logo.jpeg";
 import "./Navbar.css";
 
 export default function Navbar() {
@@ -26,18 +26,14 @@ export default function Navbar() {
         {/* left corner: logo + name */}
         <Link to="/" className="nav-logo" onClick={close}>
           <span className="nav-badge">
-            <img src={logo} alt="Aurelia Jewels logo" />
+            <img src={logo} alt="HafAura Jewelry logo" />
           </span>
           <span className="nav-brand">
-            Aurelia <small>Jewels</small>
+            HafAura <small>Jewelry</small>
           </span>
         </Link>
 
-        <button
-          className="nav-toggle"
-          onClick={() => setOpen(!open)}
-          aria-label="Menu"
-        >
+        <button className="nav-toggle" onClick={() => setOpen(!open)} aria-label="Menu">
           ☰
         </button>
 
@@ -63,9 +59,7 @@ export default function Navbar() {
               <NavLink to="/profile" onClick={close}>
                 Hi, {user.name.split(" ")[0]}
               </NavLink>
-              <button className="nav-btn" onClick={handleLogout}>
-                Logout
-              </button>
+              <button className="nav-btn" onClick={handleLogout}>Logout</button>
             </>
           ) : (
             <Link to="/auth" className="nav-btn" onClick={close}>

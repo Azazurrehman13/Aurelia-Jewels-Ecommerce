@@ -2,8 +2,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { useAuth } from "../context/AuthContext";
 import { useDialog } from "../context/DialogContext";
-import logo from "../assets/Goldlogo.png";
 import { formatPrice, capitalize } from "../utils/format";
+import logo from "../assets/hafaura-logo.jpeg";
 import "./Cart.css";
 
 export default function Cart() {
@@ -39,7 +39,7 @@ export default function Cart() {
       <div className="cart">
         <div className="cart-empty">
           <span className="cart-empty-logo">
-            <img src={logo} alt="Aurelia Jewels logo" />
+            <img src={logo} alt="HafAura Jewelry logo" />
           </span>
           <h1>Your cart is empty</h1>
           <p>Looks like you haven't added any jewellery yet.</p>

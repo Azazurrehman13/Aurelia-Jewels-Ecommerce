@@ -7,7 +7,7 @@ const to = process.argv[2] || process.env.EMAIL_USER;
 
 const ok = await sendMail({
   to,
-  subject: "Aurelia Jewels: test email",
+  subject: "HafAura Jewelry: test email",
   html: "<h2>It works!</h2><p>Your email setup is ready.</p>",
 });
 
